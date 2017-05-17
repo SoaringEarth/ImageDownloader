@@ -1,0 +1,34 @@
+//
+//  Requirements.swift
+//  ImageDownloader
+//
+//  Created by apple on 16/05/2017.
+//
+//
+
+Mandatory Requirements
+   
+•  Use the latest development tools promoted by the platform you are working on
+•  You may use 3rd party libraries                                                              [ ]
+•  The endpoint to request images is https://www.flickr.com/services/feeds/docs/photos_public   [ ]
+•  UI/UX for browsing/using the Photo Gallery is at your discretion                             [ ]
+•  Image metadata must be visible for each picture                                              [ ]
+•  Git is used to track the application development                                             [x]
+
+Optional Requirements
+•  Search for images by tag                                                                     [ ]
+    - Search results controller
+    - list of images updates after pressing enter
+
+•  Image caching                                                                                [ ]
+    - Part of APIManager
+
+•  Order by date taken or date published                                                        [ ]
+    - Navigation Bar button
+    - Add filter functionality to right side button
+•  Save image to the System Gallery                                                             [ ]
+    -
+•  Open image in system browser                                                                 [ ]
+    - 
+•  Share picture by email                                                                       [ ]
+    - Add default sharing dialogue
