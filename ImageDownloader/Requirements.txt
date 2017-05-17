@@ -28,7 +28,7 @@ Optional Requirements
     - Add filter functionality to right side button
 •  Save image to the System Gallery                                                             [ ]
     -
-•  Open image in system browser                                                                 [ ]
+•  Open image in system browser                                                                 [x]
     - 
 •  Share picture by email                                                                       [ ]
     - Add default sharing dialogue
