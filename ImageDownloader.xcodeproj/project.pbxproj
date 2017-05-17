@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04F2B2211ECCD6CF00BC69C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2201ECCD6CF00BC69C6 /* AppDelegate.swift */; };
-		04F2B2231ECCD6CF00BC69C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2221ECCD6CF00BC69C6 /* ViewController.swift */; };
 		04F2B2261ECCD6CF00BC69C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F2B2241ECCD6CF00BC69C6 /* Main.storyboard */; };
 		04F2B2291ECCD6CF00BC69C6 /* ImageDownloader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2271ECCD6CF00BC69C6 /* ImageDownloader.xcdatamodeld */; };
 		04F2B22B1ECCD6CF00BC69C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F2B22A1ECCD6CF00BC69C6 /* Assets.xcassets */; };
@@ -39,7 +38,6 @@
 /* Begin PBXFileReference section */
 		04F2B21D1ECCD6CF00BC69C6 /* ImageDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F2B2201ECCD6CF00BC69C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04F2B2221ECCD6CF00BC69C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04F2B2251ECCD6CF00BC69C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04F2B2281ECCD6CF00BC69C6 /* ImageDownloader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImageDownloader.xcdatamodel; sourceTree = "<group>"; };
 		04F2B22A1ECCD6CF00BC69C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,16 +102,11 @@
 		04F2B21F1ECCD6CF00BC69C6 /* ImageDownloader */ = {
 			isa = PBXGroup;
 			children = (
-				04F2B2201ECCD6CF00BC69C6 /* AppDelegate.swift */,
-				04F2B2221ECCD6CF00BC69C6 /* ViewController.swift */,
-				04F2B2521ECCD77200BC69C6 /* ImageGalleryCollectionViewCell.swift */,
-				04F2B2531ECCD77200BC69C6 /* ImageGalleryViewController.swift */,
-				04F2B2241ECCD6CF00BC69C6 /* Main.storyboard */,
-				04F2B22A1ECCD6CF00BC69C6 /* Assets.xcassets */,
+				04F2B2561ECCD7E500BC69C6 /* App Delegate */,
+				04F2B25B1ECCD81400BC69C6 /* Core App */,
+				04F2B2571ECCD7F900BC69C6 /* Supporting Files */,
 				04F2B22C1ECCD6CF00BC69C6 /* LaunchScreen.storyboard */,
-				04F2B22F1ECCD6CF00BC69C6 /* Info.plist */,
-				04F2B2511ECCD74D00BC69C6 /* Requirements.txt */,
-				04F2B2271ECCD6CF00BC69C6 /* ImageDownloader.xcdatamodeld */,
+				04F2B2591ECCD80700BC69C6 /* Core Data */,
 			);
 			path = ImageDownloader;
 			sourceTree = "<group>";
@@ -134,6 +127,82 @@
 				04F2B2451ECCD6CF00BC69C6 /* Info.plist */,
 			);
 			path = ImageDownloaderUITests;
+			sourceTree = "<group>";
+		};
+		04F2B2561ECCD7E500BC69C6 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B2201ECCD6CF00BC69C6 /* AppDelegate.swift */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		04F2B2571ECCD7F900BC69C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B2581ECCD80100BC69C6 /* Assets */,
+				04F2B22F1ECCD6CF00BC69C6 /* Info.plist */,
+				04F2B2511ECCD74D00BC69C6 /* Requirements.txt */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04F2B2581ECCD80100BC69C6 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B22A1ECCD6CF00BC69C6 /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		04F2B2591ECCD80700BC69C6 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B25A1ECCD80D00BC69C6 /* Data Models */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		04F2B25A1ECCD80D00BC69C6 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B2271ECCD6CF00BC69C6 /* ImageDownloader.xcdatamodeld */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
+		04F2B25B1ECCD81400BC69C6 /* Core App */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B25C1ECCD82400BC69C6 /* Custom Views */,
+				04F2B25E1ECCD83A00BC69C6 /* View Controllers */,
+				04F2B25D1ECCD82E00BC69C6 /* Storyboards */,
+			);
+			name = "Core App";
+			sourceTree = "<group>";
+		};
+		04F2B25C1ECCD82400BC69C6 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B2521ECCD77200BC69C6 /* ImageGalleryCollectionViewCell.swift */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		04F2B25D1ECCD82E00BC69C6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B2241ECCD6CF00BC69C6 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		04F2B25E1ECCD83A00BC69C6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B2531ECCD77200BC69C6 /* ImageGalleryViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +344,6 @@
 				04F2B2291ECCD6CF00BC69C6 /* ImageDownloader.xcdatamodeld in Sources */,
 				04F2B2541ECCD77200BC69C6 /* ImageGalleryCollectionViewCell.swift in Sources */,
 				04F2B2551ECCD77200BC69C6 /* ImageGalleryViewController.swift in Sources */,
-				04F2B2231ECCD6CF00BC69C6 /* ViewController.swift in Sources */,
 				04F2B2211ECCD6CF00BC69C6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
