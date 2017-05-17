@@ -8,27 +8,18 @@
 
 Mandatory Requirements
    
-•  Use the latest development tools promoted by the platform you are working on                 [ ]
+•  Use the latest development tools promoted by the platform you are working on                 [x]
 •  You may use 3rd party libraries                                                              [x]
 •  The endpoint to request images is https://www.flickr.com/services/feeds/docs/photos_public   [x]
-•  UI/UX for browsing/using the Photo Gallery is at your discretion                             [ ]
-•  Image metadata must be visible for each picture                                              [ ]
+•  UI/UX for browsing/using the Photo Gallery is at your discretion                             [x]
+•  Image metadata must be visible for each picture                                              [x]
 •  Git is used to track the application development                                             [x]
 
 Optional Requirements
-•  Search for images by tag                                                                     [ ]
-    - Search results controller
-    - list of images updates after pressing enter
-
+•  Search for images by tag                                                                     [o]
+     // Note - Added tags, but not search functionality
 •  Image caching                                                                                [x]
-    - Part of APIManager
-
-•  Order by date taken or date published                                                        [ ]
-    - Navigation Bar button
-    - Add filter functionality to right side button
-•  Save image to the System Gallery                                                             [ ]
-    -
-•  Open image in system browser                                                                 [ ]
-    - 
-•  Share picture by email                                                                       [ ]
-    - Add default sharing dialogue
+•  Order by date taken or date published                                                        [x]
+•  Save image to the System Gallery                                                             [x]
+•  Open image in system browser                                                                 [x]
+•  Share picture by email                                                                       [x]

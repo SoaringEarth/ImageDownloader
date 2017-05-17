@@ -12,25 +12,30 @@ class ImageDownloaderUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCollectionViewCellsExist() {
+        XCUIApplication().collectionViews.cells.otherElements.containing(.staticText, identifier:" ").children(matching: .image).element.tap()
+    }
+    
+    func testSavingImage() {
+        
+        let app = XCUIApplication()
+        // look for a specific image - improvement would be to make this dynamic
+        app.collectionViews.cells.otherElements.containing(.staticText, identifier:"17-04-10 X-T2-543").children(matching: .image).element.tap()
+        let saveButton = app.navigationBars["Detail View"].buttons["Save"]
+        if saveButton.exists {
+            saveButton.tap()
+            app.alerts["Save Image"].buttons["OK"].tap()
+        } else {
+            XCTFail()
+        }
     }
     
 }
