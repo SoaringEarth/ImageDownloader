@@ -19,6 +19,7 @@
 		04F2B2661ECCDC9300BC69C6 /* SDWebImage in Resources */ = {isa = PBXBuildFile; fileRef = 04F2B2651ECCDC9300BC69C6 /* SDWebImage */; };
 		04F2B2681ECCDCE500BC69C6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2671ECCDCE500BC69C6 /* APIManager.swift */; };
 		04F2B26C1ECCDD8B00BC69C6 /* WebServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B26B1ECCDD8B00BC69C6 /* WebServicesManager.swift */; };
+		04F2B26E1ECCE06A00BC69C6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B26D1ECCE06A00BC69C6 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		04F2B2651ECCDC9300BC69C6 /* SDWebImage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SDWebImage; sourceTree = "<group>"; };
 		04F2B2671ECCDCE500BC69C6 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		04F2B26B1ECCDD8B00BC69C6 /* WebServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServicesManager.swift; sourceTree = "<group>"; };
+		04F2B26D1ECCE06A00BC69C6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 		04F2B2641ECCDC6500BC69C6 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				04F2B26F1ECCE06E00BC69C6 /* SwiftyJSON */,
 				04F2B2651ECCDC9300BC69C6 /* SDWebImage */,
 			);
 			name = External;
@@ -245,6 +248,14 @@
 				04F2B2691ECCDCE800BC69C6 /* Networking */,
 			);
 			name = "Helper Files";
+			sourceTree = "<group>";
+		};
+		04F2B26F1ECCE06E00BC69C6 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B26D1ECCE06A00BC69C6 /* SwiftyJSON.swift */,
+			);
+			name = SwiftyJSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +400,7 @@
 				04F2B2541ECCD77200BC69C6 /* ImageGalleryCollectionViewCell.swift in Sources */,
 				04F2B2681ECCDCE500BC69C6 /* APIManager.swift in Sources */,
 				04F2B2551ECCD77200BC69C6 /* ImageGalleryViewController.swift in Sources */,
+				04F2B26E1ECCE06A00BC69C6 /* SwiftyJSON.swift in Sources */,
 				04F2B2211ECCD6CF00BC69C6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

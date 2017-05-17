@@ -9,17 +9,32 @@
 import UIKit
 
 class ImageGalleryViewController: UIViewController {
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchFlickrData()
     }
     
     func fetchFlickrData() {
         
-    
-        
-    
+        WebServicesManager.sharedInstance.getImageDataWithCompletionBlock(completedWithSuccess: { (success, json) in
+            if success {
+                
+                print(json)
+//                for message in (json!["chats"] as! [[String:AnyObject]]) {
+//                    let newMessage = Message(json: message)
+//                }
+            } else {
+                let alertController = UIAlertController(title: "No Data", message: "Please try again later", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+            }
+        })
     }
+    
 }
 
 extension ImageGalleryViewController: UICollectionViewDataSource {

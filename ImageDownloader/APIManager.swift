@@ -31,17 +31,17 @@ class APIManager : NSObject, URLSessionDataDelegate {
     }
     
     //MARK generic requests
-    static func request(url:String, method:requestMethod, useCaching: Bool = false, valueToEncodeForKey:String? = nil, body:[String:AnyObject]? = nil, completion:((Bool, [String: Any]?)->())?, failure:((NSData?, NSError)->())?) {
+    static func request(url:String, method:requestMethod, useCaching: Bool = false, valueToEncodeForKey:String? = nil, body:[String:String]? = nil, completion:((Bool, JSON?)->())?, failure:((NSData?, NSError)->())?) {
         
         _ = requestWithUrl(urlString: url, session:sharedInstance.unauthenticatedSession, method:method, body:body, useCaching: useCaching, valueToEncodeForKey:valueToEncodeForKey, completion:completion, failure:failure)
     }
     
-    static func requestWithUrl(urlString:String, session:URLSession, method:requestMethod, body:[String:AnyObject]? = nil, useCaching: Bool = false, valueToEncodeForKey:String? = nil, completion:((Bool, [String: Any])->())?, failure:((NSData?, NSError)->())?) {
+    static func requestWithUrl(urlString:String, session:URLSession, method:requestMethod, body:[String:String]? = nil, useCaching: Bool = false, valueToEncodeForKey:String? = nil, completion:((Bool, JSON)->())?, failure:((NSData?, NSError)->())?) {
         
         let urlRequest = NSMutableURLRequest()
         urlRequest.httpMethod = method.rawValue
         if useCaching {
-            urlRequest.cachePolicy = .returnCacheDataDontLoad
+            urlRequest.cachePolicy = .returnCacheDataElseLoad
         }
         else {
             urlRequest.cachePolicy = .useProtocolCachePolicy
@@ -63,8 +63,15 @@ class APIManager : NSObject, URLSessionDataDelegate {
                 if let httpURLResponse = response as? HTTPURLResponse {
                     if (200...299 ~= httpURLResponse.statusCode) {
                         do {
-                            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: Any]
-                            completion!(true, json)
+                            if let data = data {
+                                var desc = String(data: data, encoding: .utf8)
+                                desc?.characters.removeFirst()
+                                desc?.characters.removeLast()
+
+                                let json = try JSON(data: (desc?.data(using: .utf8))!, options: [.allowFragments, .mutableContainers])
+                                print(json)
+                                completion!(true, json)
+                            }
                         } catch {
                             ///alert
                             print(error)
