@@ -65,6 +65,7 @@
                                                 <connections>
                                                     <outlet property="imageView" destination="0rR-xT-k3W" id="CSc-4c-ZZ0"/>
                                                     <outlet property="titleLabel" destination="14J-Ap-VEh" id="gLB-Oj-8Ae"/>
+                                                    <segue destination="6un-H1-Z0f" kind="show" id="3Bx-Kx-QWJ"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -127,6 +128,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="69.715142428785612"/>
+        </scene>
+        <!--Detail View-->
+        <scene sceneID="HrG-vR-fES">
+            <objects>
+                <viewController id="6un-H1-Z0f" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aAI-LQ-PQa"/>
+                        <viewControllerLayoutGuide type="bottom" id="slG-ht-zoN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aas-38-fqj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail View" id="335-14-pdC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8JC-fS-KC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BeM-N6-1ia">
