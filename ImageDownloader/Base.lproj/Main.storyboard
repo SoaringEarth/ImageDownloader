@@ -82,18 +82,46 @@
                                     <constraint firstAttribute="trailing" secondItem="Hrm-Yg-WlT" secondAttribute="trailing" constant="16" id="l0R-5H-ueN"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBN-8x-AfV">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkQ-4v-T28">
+                                        <rect key="frame" x="123.5" y="246.5" width="127" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Cev-oC-ZGc">
+                                        <rect key="frame" x="169" y="283.5" width="37" height="37"/>
+                                        <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="PkQ-4v-T28" firstAttribute="centerX" secondItem="Cev-oC-ZGc" secondAttribute="centerX" id="2Y2-ie-8we"/>
+                                    <constraint firstItem="Cev-oC-ZGc" firstAttribute="centerX" secondItem="GBN-8x-AfV" secondAttribute="centerX" id="ejK-NO-z3Q"/>
+                                    <constraint firstItem="Cev-oC-ZGc" firstAttribute="centerY" secondItem="GBN-8x-AfV" secondAttribute="centerY" id="swd-dz-tQ0"/>
+                                    <constraint firstItem="Cev-oC-ZGc" firstAttribute="top" secondItem="PkQ-4v-T28" secondAttribute="bottom" constant="16" id="u7D-b9-agp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="GBN-8x-AfV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8lC-ee-R4L"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="GBN-8x-AfV" secondAttribute="bottom" id="AXL-kX-BnW"/>
                             <constraint firstItem="66z-r7-hrX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Brh-Jh-IAY"/>
                             <constraint firstItem="66z-r7-hrX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FQc-pB-EJ1"/>
+                            <constraint firstAttribute="trailing" secondItem="GBN-8x-AfV" secondAttribute="trailing" id="NMH-2a-fg7"/>
                             <constraint firstAttribute="bottomMargin" secondItem="66z-r7-hrX" secondAttribute="bottom" id="SIP-Ub-xwS"/>
                             <constraint firstAttribute="trailing" secondItem="66z-r7-hrX" secondAttribute="trailing" id="bNZ-1n-OiS"/>
+                            <constraint firstItem="GBN-8x-AfV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ga7-Ng-fSm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Image Gallery" id="eFX-eP-m7G"/>
                     <connections>
                         <outlet property="imageGalleryCollectionView" destination="Hrm-Yg-WlT" id="Px5-9d-cvB"/>
+                        <outlet property="loadingView" destination="GBN-8x-AfV" id="t3h-HE-VKd"/>
+                        <outlet property="loadingViewLabel" destination="PkQ-4v-T28" id="jfG-PN-O68"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

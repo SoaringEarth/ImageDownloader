@@ -64,12 +64,13 @@ class APIManager : NSObject, URLSessionDataDelegate {
                     if (200...299 ~= httpURLResponse.statusCode) {
                         do {
                             if let data = data {
-                                var desc = String(data: data, encoding: .utf8)
-                                desc?.characters.removeFirst()
-                                desc?.characters.removeLast()
-
-                                let json = try JSON(data: (desc?.data(using: .utf8))!, options: [.allowFragments, .mutableContainers])
-                                completion!(true, json)
+                                if var jsonPString = String(data: data, encoding: .ascii) {
+                                    jsonPString.characters.removeFirst()
+                                    jsonPString.characters.removeLast()
+                                    
+                                    let json = try JSON(data: (jsonPString.data(using: .utf8))!, options: [.allowFragments, .mutableContainers])
+                                    completion!(true, json)
+                                }
                             }
                         } catch {
                             ///alert

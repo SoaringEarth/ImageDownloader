@@ -10,14 +10,18 @@ import UIKit
 
 class ImageGalleryViewController: UIViewController {
     
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingViewLabel: UILabel!
     @IBOutlet weak var imageGalleryCollectionView: UICollectionView!
+    
+    let imageGalleryModel = ImageGalleryModel.sharedInstance
     
     var imageCount = 0 {
         didSet {
             imageGalleryCollectionView.reloadData()
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +29,14 @@ class ImageGalleryViewController: UIViewController {
     }
     
     func fetchFlickrData() {
+        imageGalleryModel.fetchImageGalleryData(withCompletion: { 
+            self.imageCount = self.imageGalleryModel.images.count
+            self.loadingView.isHidden = true
+        }, andFailure: {
+            print("Failed to get images")
+            
+            self.loadingViewLabel.text = "Failed To Get Images Please Try Again Later"
+        })
     }
     
 }
@@ -40,9 +52,9 @@ extension ImageGalleryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageGalleryCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageGalleryCell", for: indexPath) as! ImageGalleryCollectionViewCell
         
-        cell.backgroundColor = UIColor.red
+        cell.setupInterface(withGalleryObject: imageGalleryModel.images[indexPath.row])
         
         return cell
     }

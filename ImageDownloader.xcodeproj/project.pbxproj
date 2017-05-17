@@ -23,6 +23,7 @@
 		04F2B2821ECCF2C200BC69C6 /* ImageGalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2801ECCF2C200BC69C6 /* ImageGalleryModel.swift */; };
 		04F2B28C1ECCFA2900BC69C6 /* ImageGalleryObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B28A1ECCFA2900BC69C6 /* ImageGalleryObject+CoreDataClass.swift */; };
 		04F2B28D1ECCFA2900BC69C6 /* ImageGalleryObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B28B1ECCFA2900BC69C6 /* ImageGalleryObject+CoreDataProperties.swift */; };
+		04F2B28F1ECD069700BC69C6 /* ImageGalleryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B28E1ECD069700BC69C6 /* ImageGalleryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		04F2B2801ECCF2C200BC69C6 /* ImageGalleryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryModel.swift; sourceTree = "<group>"; };
 		04F2B28A1ECCFA2900BC69C6 /* ImageGalleryObject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ImageGalleryObject+CoreDataClass.swift"; path = "../ImageGalleryObject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		04F2B28B1ECCFA2900BC69C6 /* ImageGalleryObject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ImageGalleryObject+CoreDataProperties.swift"; path = "../ImageGalleryObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04F2B28E1ECD069700BC69C6 /* ImageGalleryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				04F2B2531ECCD77200BC69C6 /* ImageGalleryViewController.swift */,
+				04F2B28E1ECD069700BC69C6 /* ImageGalleryDetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			files = (
 				04F2B26C1ECCDD8B00BC69C6 /* WebServicesManager.swift in Sources */,
 				04F2B2291ECCD6CF00BC69C6 /* ImageDownloader.xcdatamodeld in Sources */,
+				04F2B28F1ECD069700BC69C6 /* ImageGalleryDetailViewController.swift in Sources */,
 				04F2B2541ECCD77200BC69C6 /* ImageGalleryCollectionViewCell.swift in Sources */,
 				04F2B2681ECCDCE500BC69C6 /* APIManager.swift in Sources */,
 				04F2B2551ECCD77200BC69C6 /* ImageGalleryViewController.swift in Sources */,

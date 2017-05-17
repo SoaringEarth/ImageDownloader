@@ -18,7 +18,7 @@ extension ImageGalleryObject {
 
     @NSManaged public var title: String?
     @NSManaged public var tags: String?
-    @NSManaged public var image: NSData?
+    @NSManaged public var image: Data?
     @NSManaged public var datePublished: Date?
     @NSManaged public var dateTaken: Date?
 
