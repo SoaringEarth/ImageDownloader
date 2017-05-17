@@ -53,8 +53,19 @@ class ImageGalleryDetailViewController: UIViewController {
     }
     
     private func saveImage() {
-        UIImageWriteToSavedPhotosAlbum(objectImageView.image!, nil, nil, nil)
+        let alertController = UIAlertController(title: "Save Image", message: "Would you like to save this image", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "NO", style: .destructive, handler: nil))
+        
+        let saveAction = UIAlertAction(title: "OK", style: .default) { action in
+            UIImageWriteToSavedPhotosAlbum(self.objectImageView.image!, nil, nil, nil)
+        }
+        alertController.addAction(saveAction)
+        
+        present(alertController, animated: true, completion: nil)        
     }
+}
+
+extension ImageGalleryDetailViewController : MFMailComposeViewControllerDelegate {
     
     @IBAction func shareButtonPressed(_ sender: Any) {
         shareImage()
@@ -62,16 +73,25 @@ class ImageGalleryDetailViewController: UIViewController {
     
     private func shareImage() {
         
-        let picker = MFMailComposeViewController()
-        picker.mailComposeDelegate = self
-        picker.setSubject("Check out this image from Flickr - So Cool")
-        picker.setMessageBody("", isHTML: true)
-        picker.addAttachmentData(imageGalleryObject!.image!, mimeType: "", fileName: "\(imageGalleryObject?.title).png")
-        
-        present(picker, animated: true, completion: nil)
-    }
-}
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setSubject("Check out this image from Flickr - So Cool")
+            mail.setMessageBody("", isHTML: true)
+            mail.addAttachmentData(imageGalleryObject!.image!, mimeType: "", fileName: "\(imageGalleryObject?.title).png")
+            
+            present(mail, animated: true)
+        } else {
 
-extension ImageGalleryDetailViewController : MFMailComposeViewControllerDelegate {
+            print("Failed to send email")
+            let alertController = UIAlertController(title: "Cannot Send Mail", message: "Please try again later, maybe on a real device", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            present(alertController, animated: true, completion: nil)
+        }
+    }
     
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
 }
