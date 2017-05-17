@@ -10,8 +10,18 @@ import UIKit
 
 class ImageGalleryViewController: UIViewController {
     
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingViewLabel: UILabel!
+    @IBOutlet weak var imageGalleryCollectionView: UICollectionView!
     
+    let imageGalleryModel = ImageGalleryModel.sharedInstance
     
+    var imageCount = 0 {
+        didSet {
+            imageGalleryCollectionView.reloadData()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,19 +29,13 @@ class ImageGalleryViewController: UIViewController {
     }
     
     func fetchFlickrData() {
-        
-        WebServicesManager.sharedInstance.getImageDataWithCompletionBlock(completedWithSuccess: { (success, json) in
-            if success {
-                
-                print(json)
-//                for message in (json!["chats"] as! [[String:AnyObject]]) {
-//                    let newMessage = Message(json: message)
-//                }
-            } else {
-                let alertController = UIAlertController(title: "No Data", message: "Please try again later", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-            }
+        imageGalleryModel.fetchImageGalleryData(withCompletion: { 
+            self.imageCount = self.imageGalleryModel.images.count
+            self.loadingView.isHidden = true
+        }, andFailure: {
+            print("Failed to get images")
+            
+            self.loadingViewLabel.text = "Failed To Get Images Please Try Again Later"
         })
     }
     
@@ -44,13 +48,13 @@ extension ImageGalleryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return imageCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageGalleryCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageGalleryCell", for: indexPath) as! ImageGalleryCollectionViewCell
         
-        cell.backgroundColor = UIColor.red
+        cell.setupInterface(withGalleryObject: imageGalleryModel.images[indexPath.row])
         
         return cell
     }
