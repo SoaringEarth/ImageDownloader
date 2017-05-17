@@ -12,30 +12,53 @@ import CoreData
 class ImageGalleryModel: NSObject {
     
     static var sharedInstance = ImageGalleryModel()
-
+    
     let appDelegate = AppDelegate()
     
     var images = [ImageGalleryObject]()
     
     func fetchImageGalleryData(withCompletion completionHandler: @escaping ()->(), andFailure failureHandler: @escaping ()->()) {
-        WebServicesManager.sharedInstance.getImageDataWithCompletionBlock(completedWithSuccess: { (success, json) in
-            if success {
-                for item in json["items"] {
-                    if let itemDictionary = item.1.dictionary {
-                        if !self.coreDataObjectExists(withTitle: itemDictionary["title"]!.stringValue) {
-                            let imageGalleryObject = self.createImageGalleryObjectFrom(dictionary: itemDictionary)!
-                            self.images.append(imageGalleryObject)
-                            self.appDelegate.saveContext()
+        
+        if !coreDataObjectsExist() {
+            WebServicesManager.sharedInstance.getImageDataWithCompletionBlock(completedWithSuccess: { (success, json) in
+                if success {
+                    for item in json["items"] {
+                        if let itemDictionary = item.1.dictionary {
+                            if !self.coreDataObjectExists(withTitle: itemDictionary["title"]!.stringValue) {
+                                let imageGalleryObject = self.createImageGalleryObjectFrom(dictionary: itemDictionary)!
+                                self.images.append(imageGalleryObject)
+                                self.appDelegate.saveContext()
+                            }
                         }
                     }
+                    
+                    completionHandler()
+                } else {
+                    print("Failed to get Data")
+                    failureHandler()
                 }
-                
-                completionHandler()
-            } else {
-                print("Failed to get Data")
-                failureHandler()
+            })
+        } else {
+            completionHandler()
+        }
+    }
+    
+    private func coreDataObjectsExist() -> Bool {
+        images = []
+        let entity = "ImageGalleryObject"
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        do {
+            if let entities = try appDelegate.persistentContainer.viewContext.fetch(request) as? [ImageGalleryObject] {
+                for galleryObject in entities {
+                    images.append(galleryObject)
+                }
             }
-        })
+        } catch {
+            print("Error Searching for CoreData Objects")
+            return false
+        }
+        
+        return true
     }
     
     private func coreDataObjectExists(withTitle title : String) -> Bool {
@@ -43,10 +66,10 @@ class ImageGalleryModel: NSObject {
         let entity = "ImageGalleryObject"
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         do {
-            if let entities = try appDelegate.persistentContainer.viewContext.fetch(request) as? [NSManagedObject] {
+            if let entities = try appDelegate.persistentContainer.viewContext.fetch(request) as? [ImageGalleryObject] {
                 print(entities.count)
                 for galleryObject in entities {
-                    if galleryObject.value(forKey: "title") as! String == title {
+                    if galleryObject.title == title {
                         return true
                     }
                 }
