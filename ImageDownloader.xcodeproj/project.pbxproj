@@ -16,6 +16,9 @@
 		04F2B2441ECCD6CF00BC69C6 /* ImageDownloaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2431ECCD6CF00BC69C6 /* ImageDownloaderUITests.swift */; };
 		04F2B2541ECCD77200BC69C6 /* ImageGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2521ECCD77200BC69C6 /* ImageGalleryCollectionViewCell.swift */; };
 		04F2B2551ECCD77200BC69C6 /* ImageGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2531ECCD77200BC69C6 /* ImageGalleryViewController.swift */; };
+		04F2B2661ECCDC9300BC69C6 /* SDWebImage in Resources */ = {isa = PBXBuildFile; fileRef = 04F2B2651ECCDC9300BC69C6 /* SDWebImage */; };
+		04F2B2681ECCDCE500BC69C6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2671ECCDCE500BC69C6 /* APIManager.swift */; };
+		04F2B26C1ECCDD8B00BC69C6 /* WebServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B26B1ECCDD8B00BC69C6 /* WebServicesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		04F2B2511ECCD74D00BC69C6 /* Requirements.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Requirements.txt; sourceTree = "<group>"; };
 		04F2B2521ECCD77200BC69C6 /* ImageGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		04F2B2531ECCD77200BC69C6 /* ImageGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryViewController.swift; sourceTree = "<group>"; };
+		04F2B2651ECCDC9300BC69C6 /* SDWebImage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SDWebImage; sourceTree = "<group>"; };
+		04F2B2671ECCDCE500BC69C6 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		04F2B26B1ECCDD8B00BC69C6 /* WebServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServicesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				04F2B21F1ECCD6CF00BC69C6 /* ImageDownloader */,
+				04F2B2631ECCDC5D00BC69C6 /* Frameworks */,
 				04F2B2371ECCD6CF00BC69C6 /* ImageDownloaderTests */,
 				04F2B2421ECCD6CF00BC69C6 /* ImageDownloaderUITests */,
 				04F2B21E1ECCD6CF00BC69C6 /* Products */,
@@ -103,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				04F2B2561ECCD7E500BC69C6 /* App Delegate */,
+				04F2B26A1ECCDD0200BC69C6 /* Helper Files */,
 				04F2B25B1ECCD81400BC69C6 /* Core App */,
 				04F2B2571ECCD7F900BC69C6 /* Supporting Files */,
 				04F2B22C1ECCD6CF00BC69C6 /* LaunchScreen.storyboard */,
@@ -203,6 +211,40 @@
 				04F2B2531ECCD77200BC69C6 /* ImageGalleryViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		04F2B2631ECCDC5D00BC69C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B2641ECCDC6500BC69C6 /* External */,
+			);
+			name = Frameworks;
+			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
+		04F2B2641ECCDC6500BC69C6 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B2651ECCDC9300BC69C6 /* SDWebImage */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		04F2B2691ECCDCE800BC69C6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B2671ECCDCE500BC69C6 /* APIManager.swift */,
+				04F2B26B1ECCDD8B00BC69C6 /* WebServicesManager.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		04F2B26A1ECCDD0200BC69C6 /* Helper Files */ = {
+			isa = PBXGroup;
+			children = (
+				04F2B2691ECCDCE800BC69C6 /* Networking */,
+			);
+			name = "Helper Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +358,7 @@
 			files = (
 				04F2B22E1ECCD6CF00BC69C6 /* LaunchScreen.storyboard in Resources */,
 				04F2B22B1ECCD6CF00BC69C6 /* Assets.xcassets in Resources */,
+				04F2B2661ECCDC9300BC69C6 /* SDWebImage in Resources */,
 				04F2B2261ECCD6CF00BC69C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,8 +384,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F2B26C1ECCDD8B00BC69C6 /* WebServicesManager.swift in Sources */,
 				04F2B2291ECCD6CF00BC69C6 /* ImageDownloader.xcdatamodeld in Sources */,
 				04F2B2541ECCD77200BC69C6 /* ImageGalleryCollectionViewCell.swift in Sources */,
+				04F2B2681ECCDCE500BC69C6 /* APIManager.swift in Sources */,
 				04F2B2551ECCD77200BC69C6 /* ImageGalleryViewController.swift in Sources */,
 				04F2B2211ECCD6CF00BC69C6 /* AppDelegate.swift in Sources */,
 			);
@@ -593,6 +638,7 @@
 				04F2B24A1ECCD6CF00BC69C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04F2B24B1ECCD6CF00BC69C6 /* Build configuration list for PBXNativeTarget "ImageDownloaderTests" */ = {
 			isa = XCConfigurationList;
@@ -601,6 +647,7 @@
 				04F2B24D1ECCD6CF00BC69C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04F2B24E1ECCD6CF00BC69C6 /* Build configuration list for PBXNativeTarget "ImageDownloaderUITests" */ = {
 			isa = XCConfigurationList;
@@ -609,6 +656,7 @@
 				04F2B2501ECCD6CF00BC69C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
