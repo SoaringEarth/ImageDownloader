@@ -69,7 +69,6 @@ class APIManager : NSObject, URLSessionDataDelegate {
                                 desc?.characters.removeLast()
 
                                 let json = try JSON(data: (desc?.data(using: .utf8))!, options: [.allowFragments, .mutableContainers])
-                                print(json)
                                 completion!(true, json)
                             }
                         } catch {

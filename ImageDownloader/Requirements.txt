@@ -9,8 +9,8 @@
 Mandatory Requirements
    
 •  Use the latest development tools promoted by the platform you are working on                 [ ]
-•  You may use 3rd party libraries                                                              [ ]
-•  The endpoint to request images is https://www.flickr.com/services/feeds/docs/photos_public   [ ]
+•  You may use 3rd party libraries                                                              [x]
+•  The endpoint to request images is https://www.flickr.com/services/feeds/docs/photos_public   [x]
 •  UI/UX for browsing/using the Photo Gallery is at your discretion                             [ ]
 •  Image metadata must be visible for each picture                                              [ ]
 •  Git is used to track the application development                                             [x]

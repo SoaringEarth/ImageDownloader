@@ -10,4 +10,5 @@ import UIKit
 
 class ImageGalleryCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var titleLabel: UILabel!
 }

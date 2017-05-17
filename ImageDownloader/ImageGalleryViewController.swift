@@ -10,7 +10,13 @@ import UIKit
 
 class ImageGalleryViewController: UIViewController {
     
+    @IBOutlet weak var imageGalleryCollectionView: UICollectionView!
     
+    var imageCount = 0 {
+        didSet {
+            imageGalleryCollectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +28,11 @@ class ImageGalleryViewController: UIViewController {
         
         WebServicesManager.sharedInstance.getImageDataWithCompletionBlock(completedWithSuccess: { (success, json) in
             if success {
+                for item in json["items"] {
+                    print(item)
+                }
                 
-                print(json)
-//                for message in (json!["chats"] as! [[String:AnyObject]]) {
-//                    let newMessage = Message(json: message)
-//                }
+                self.imageCount = json["items"].count
             } else {
                 let alertController = UIAlertController(title: "No Data", message: "Please try again later", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
@@ -44,7 +50,7 @@ extension ImageGalleryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return imageCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
