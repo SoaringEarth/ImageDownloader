@@ -20,7 +20,7 @@ Optional Requirements
     - Search results controller
     - list of images updates after pressing enter
 
-•  Image caching                                                                                [ ]
+•  Image caching                                                                                [x]
     - Part of APIManager
 
 •  Order by date taken or date published                                                        [ ]

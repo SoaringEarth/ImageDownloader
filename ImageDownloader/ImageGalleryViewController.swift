@@ -25,20 +25,6 @@ class ImageGalleryViewController: UIViewController {
     }
     
     func fetchFlickrData() {
-        
-        WebServicesManager.sharedInstance.getImageDataWithCompletionBlock(completedWithSuccess: { (success, json) in
-            if success {
-                for item in json["items"] {
-                    print(item)
-                }
-                
-                self.imageCount = json["items"].count
-            } else {
-                let alertController = UIAlertController(title: "No Data", message: "Please try again later", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-            }
-        })
     }
     
 }
