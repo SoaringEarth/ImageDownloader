@@ -48,7 +48,30 @@ class ImageGalleryDetailViewController: UIViewController {
     }
     
     
-    
-        
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        saveImage()
     }
+    
+    private func saveImage() {
+        UIImageWriteToSavedPhotosAlbum(objectImageView.image!, nil, nil, nil)
+    }
+    
+    @IBAction func shareButtonPressed(_ sender: Any) {
+        shareImage()
+    }
+    
+    private func shareImage() {
+        
+        let picker = MFMailComposeViewController()
+        picker.mailComposeDelegate = self
+        picker.setSubject("Check out this image from Flickr - So Cool")
+        picker.setMessageBody("", isHTML: true)
+        picker.addAttachmentData(imageGalleryObject!.image!, mimeType: "", fileName: "\(imageGalleryObject?.title).png")
+        
+        present(picker, animated: true, completion: nil)
+    }
+}
+
+extension ImageGalleryDetailViewController : MFMailComposeViewControllerDelegate {
+    
 }
