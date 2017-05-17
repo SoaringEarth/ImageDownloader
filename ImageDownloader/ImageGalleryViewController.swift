@@ -39,6 +39,38 @@ class ImageGalleryViewController: UIViewController {
         })
     }
     
+    @IBAction func filterItemsButtonPressed(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: "Sort Images", message: "Choose how to sort these images", preferredStyle: .alert)
+        let dateTakenSortAction = UIAlertAction(title: "Date Taken", style: .default) { action in
+            self.imageGalleryModel.images.sort {
+                guard let dateTaken0 = $0.dateTaken, let dateTaken1 = $1.dateTaken else { return false }
+                return dateTaken0 < dateTaken1
+            }
+            self.imageGalleryCollectionView.reloadData()
+        }
+        alertController.addAction(dateTakenSortAction)
+        
+        let datePublishedSortAction = UIAlertAction(title: "Date Published", style: .default) { action in
+            self.imageGalleryModel.images.sort {
+                guard let datePublished0 = $0.datePublished, let datePublished1 = $1.datePublished else { return false }
+                return datePublished0 < datePublished1
+            }
+            self.imageGalleryCollectionView.reloadData()
+        }
+        alertController.addAction(datePublishedSortAction)
+        
+        let titleSortAction = UIAlertAction(title: "Title", style: .default) { action in
+            self.imageGalleryModel.images.sort {
+                guard let title0 = $0.title, let title1 = $1.title else { return false }
+                return title0 < title1
+            }
+            self.imageGalleryCollectionView.reloadData()
+        }
+        alertController.addAction(titleSortAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 extension ImageGalleryViewController: UICollectionViewDataSource {

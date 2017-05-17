@@ -117,7 +117,13 @@
                             <constraint firstItem="GBN-8x-AfV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ga7-Ng-fSm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Image Gallery" id="eFX-eP-m7G"/>
+                    <navigationItem key="navigationItem" title="Image Gallery" id="eFX-eP-m7G">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="organize" id="Svm-MO-sWQ">
+                            <connections>
+                                <action selector="filterItemsButtonPressed:" destination="BYZ-38-t0r" id="iic-ax-O1W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageGalleryCollectionView" destination="Hrm-Yg-WlT" id="Px5-9d-cvB"/>
                         <outlet property="loadingView" destination="GBN-8x-AfV" id="t3h-HE-VKd"/>
