@@ -22,18 +22,35 @@ class ImageDownloaderTests: XCTestCase {
     // TODO: Create tests for Data Model
     func testSetupGalleryObjectsFromJSON() {
         
-        var galleryObjects : [ImageGalleryObject]?
-    
+        // TODO: Fix Test
+        
+        let imageGalleryModel = ImageGalleryModel.sharedInstance
+        
+        var galleryObjects = [ImageGalleryObject]()
+        
         guard let jsonData = loadJSONFromTestsFile() else { XCTFail(); return }
         
         XCTAssert(jsonData != JSON.null)
-    
-        for item in jsonData["items"] {
         
-            let galleryObject = ImageGalleryModel.sharedInstance.createImageGalleryObjectFrom(dictionary: item.1)
+        for item in jsonData["items"] {
             
-            XCTAssert(galleryObject != nil)
-            galleryObjects?.append(galleryObject!)
+            let json = item.1
+            
+            guard let galleryObject = imageGalleryModel.createImageGalleryObjectFrom(dictionary: json) else { XCTFail(); break }
+            
+            XCTAssert(galleryObject.title != nil)
+            XCTAssert(galleryObject.tags != nil)
+            XCTAssert(galleryObject.dateTaken != nil)
+            XCTAssert(galleryObject.datePublished != nil)
+            XCTAssert(galleryObject.image != nil)
+            
+            galleryObjects.append(galleryObject)
+        }
+        
+        if galleryObjects.count > 0 {
+            XCTAssert( galleryObjects.count > 0)
+        } else {
+            XCTFail()
         }
     }
     

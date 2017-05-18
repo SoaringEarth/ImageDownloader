@@ -12,8 +12,4 @@ import CoreData
 
 public class ImageGalleryObject: NSManagedObject {
 
-    
-    func setValuesForKeys(_ keyedValues: [String : JSON]) {
-        
-    }
 }

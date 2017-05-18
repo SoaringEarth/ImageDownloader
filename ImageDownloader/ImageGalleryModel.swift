@@ -116,7 +116,7 @@ class ImageGalleryModel: NSObject {
         return nil
     }
     
-    private func getGalleryImageData(from URLString : String) -> Data? {
+    func getGalleryImageData(from URLString : String) -> Data? {
         
         let imageUrl: URL = URL(string: URLString)!
         do {
