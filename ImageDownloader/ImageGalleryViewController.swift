@@ -86,16 +86,13 @@ extension ImageGalleryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageGalleryCell", for: indexPath) as! ImageGalleryCollectionViewCell
-        
         cell.setupInterface(withGalleryObject: imageGalleryModel.images[indexPath.row])
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageGalleryDetailViewController") as! ImageGalleryDetailViewController
-        
         detailVC.imageGalleryObject = imageGalleryModel.images[indexPath.row]
         
         navigationController?.pushViewController(detailVC, animated: true)
@@ -103,5 +100,5 @@ extension ImageGalleryViewController: UICollectionViewDataSource {
 }
 
 extension ImageGalleryViewController: UICollectionViewDelegate {
-    
+    // Stub 
 }

@@ -24,12 +24,10 @@ class ImageGalleryModel: NSObject {
             WebServicesManager.sharedInstance.getImageDataWithCompletionBlock(completedWithSuccess: { (success, json) in
                 if success {
                     for item in json["items"] {
-                        if let itemDictionary = item.1.dictionary {
-                            if !self.coreDataObjectExists(withTitle: itemDictionary["title"]!.stringValue) {
-                                let imageGalleryObject = self.createImageGalleryObjectFrom(dictionary: itemDictionary)!
-                                self.images.append(imageGalleryObject)
-                                self.appDelegate.saveContext()
-                            }
+                        if !self.coreDataObjectExists(withTitle: item.1.dictionary!["title"]!.stringValue) {
+                            let imageGalleryObject = self.createImageGalleryObjectFrom(dictionary: item.1)!
+                            self.images.append(imageGalleryObject)
+                            self.appDelegate.saveContext()
                         }
                     }
                     
@@ -85,33 +83,35 @@ class ImageGalleryModel: NSObject {
         return false
     }
     
-    private func createImageGalleryObjectFrom(dictionary: [String: JSON]) -> ImageGalleryObject? {
-        let context = appDelegate.persistentContainer.viewContext
-        if let imageObject = NSEntityDescription.insertNewObject(forEntityName: "ImageGalleryObject", into: context) as? ImageGalleryObject {
-            
-            if let imageTitle = dictionary["title"]?.stringValue {
-                imageObject.title = imageTitle
+    func createImageGalleryObjectFrom(dictionary: JSON) -> ImageGalleryObject? {
+        if let dictionary = dictionary.dictionary {
+            let context = appDelegate.persistentContainer.viewContext
+            if let imageObject = NSEntityDescription.insertNewObject(forEntityName: "ImageGalleryObject", into: context) as? ImageGalleryObject {
+                
+                if let imageTitle = dictionary["title"]?.stringValue {
+                    imageObject.title = imageTitle
+                }
+                
+                if let imageTags = dictionary["tags"]?.stringValue {
+                    imageObject.tags = imageTags
+                }
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd-mm-yyyy"
+                
+                if let imageDateTaken = dictionary["date_taken"]?.stringValue {
+                    imageObject.dateTaken = dateFormatter.date(from: imageDateTaken)
+                }
+                
+                if let imageDatePublished = dictionary["published"]?.stringValue {
+                    imageObject.datePublished = dateFormatter.date(from: imageDatePublished)
+                }
+                
+                if let imageURLString = dictionary["media"]?.dictionaryValue["m"]?.stringValue {
+                    imageObject.image = getGalleryImageData(from: imageURLString)
+                }
+                return imageObject
             }
-            
-            if let imageTags = dictionary["tags"]?.stringValue {
-                imageObject.tags = imageTags
-            }
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-mm-yyyy"
-            
-            if let imageDateTaken = dictionary["date_taken"]?.stringValue {
-                imageObject.dateTaken = dateFormatter.date(from: imageDateTaken)
-            }
-            
-            if let imageDatePublished = dictionary["published"]?.stringValue {
-                imageObject.datePublished = dateFormatter.date(from: imageDatePublished)
-            }
-            
-            if let imageURLString = dictionary["media"]?.dictionaryValue["m"]?.stringValue {
-                imageObject.image = getGalleryImageData(from: imageURLString)
-            }
-            return imageObject
         }
         return nil
     }

@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044A7F831ECD98AE00A1E184 /* Test.json in Resources */ = {isa = PBXBuildFile; fileRef = 044A7F821ECD98AE00A1E184 /* Test.json */; };
+		044A7F841ECD9D5100A1E184 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2671ECCDCE500BC69C6 /* APIManager.swift */; };
+		044A7F851ECD9D5100A1E184 /* WebServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B26B1ECCDD8B00BC69C6 /* WebServicesManager.swift */; };
+		044A7F861ECD9D5700A1E184 /* ImageGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2521ECCD77200BC69C6 /* ImageGalleryCollectionViewCell.swift */; };
+		044A7F871ECD9D5A00A1E184 /* ImageGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2531ECCD77200BC69C6 /* ImageGalleryViewController.swift */; };
+		044A7F881ECD9D5A00A1E184 /* ImageGalleryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B28E1ECD069700BC69C6 /* ImageGalleryDetailViewController.swift */; };
+		044A7F891ECD9D5D00A1E184 /* ImageGalleryObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B28A1ECCFA2900BC69C6 /* ImageGalleryObject+CoreDataClass.swift */; };
+		044A7F8A1ECD9D5D00A1E184 /* ImageGalleryObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B28B1ECCFA2900BC69C6 /* ImageGalleryObject+CoreDataProperties.swift */; };
+		044A7F8B1ECD9D9E00A1E184 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B26D1ECCE06A00BC69C6 /* SwiftyJSON.swift */; };
+		044A7F8C1ECD9DC200A1E184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2201ECCD6CF00BC69C6 /* AppDelegate.swift */; };
 		04F2B2211ECCD6CF00BC69C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2201ECCD6CF00BC69C6 /* AppDelegate.swift */; };
 		04F2B2261ECCD6CF00BC69C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F2B2241ECCD6CF00BC69C6 /* Main.storyboard */; };
 		04F2B2291ECCD6CF00BC69C6 /* ImageDownloader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04F2B2271ECCD6CF00BC69C6 /* ImageDownloader.xcdatamodeld */; };
@@ -44,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044A7F821ECD98AE00A1E184 /* Test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Test.json; sourceTree = "<group>"; };
 		04F2B21D1ECCD6CF00BC69C6 /* ImageDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F2B2201ECCD6CF00BC69C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F2B2251ECCD6CF00BC69C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,9 +132,9 @@
 				04F2B2561ECCD7E500BC69C6 /* App Delegate */,
 				04F2B26A1ECCDD0200BC69C6 /* Helper Files */,
 				04F2B25B1ECCD81400BC69C6 /* Core App */,
+				04F2B2591ECCD80700BC69C6 /* Core Data */,
 				04F2B2571ECCD7F900BC69C6 /* Supporting Files */,
 				04F2B22C1ECCD6CF00BC69C6 /* LaunchScreen.storyboard */,
-				04F2B2591ECCD80700BC69C6 /* Core Data */,
 			);
 			path = ImageDownloader;
 			sourceTree = "<group>";
@@ -132,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				04F2B2381ECCD6CF00BC69C6 /* ImageDownloaderTests.swift */,
+				044A7F821ECD98AE00A1E184 /* Test.json */,
 				04F2B23A1ECCD6CF00BC69C6 /* Info.plist */,
 			);
 			path = ImageDownloaderTests;
@@ -403,6 +415,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044A7F831ECD98AE00A1E184 /* Test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,8 +451,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044A7F8C1ECD9DC200A1E184 /* AppDelegate.swift in Sources */,
+				044A7F851ECD9D5100A1E184 /* WebServicesManager.swift in Sources */,
+				044A7F841ECD9D5100A1E184 /* APIManager.swift in Sources */,
+				044A7F871ECD9D5A00A1E184 /* ImageGalleryViewController.swift in Sources */,
+				044A7F8B1ECD9D9E00A1E184 /* SwiftyJSON.swift in Sources */,
+				044A7F881ECD9D5A00A1E184 /* ImageGalleryDetailViewController.swift in Sources */,
+				044A7F861ECD9D5700A1E184 /* ImageGalleryCollectionViewCell.swift in Sources */,
 				04F2B2821ECCF2C200BC69C6 /* ImageGalleryModel.swift in Sources */,
+				044A7F8A1ECD9D5D00A1E184 /* ImageGalleryObject+CoreDataProperties.swift in Sources */,
 				04F2B2391ECCD6CF00BC69C6 /* ImageDownloaderTests.swift in Sources */,
+				044A7F891ECD9D5D00A1E184 /* ImageGalleryObject+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
