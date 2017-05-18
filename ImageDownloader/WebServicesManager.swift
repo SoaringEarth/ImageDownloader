@@ -24,9 +24,8 @@ extension WebServicesManager {
                 return completedWithSuccess(true, nonNilJSON)
             }
         }, failure: { (data, error) in
-            
             print(error)
-            return
+            return completedWithSuccess(false, JSON.null)
         })
     }
 }

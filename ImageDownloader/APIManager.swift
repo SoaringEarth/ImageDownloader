@@ -26,7 +26,7 @@ class APIManager : NSObject, URLSessionDataDelegate {
         
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = .useProtocolCachePolicy
-        config.timeoutIntervalForRequest = 30.0
+        config.timeoutIntervalForRequest = 120.0
         unauthenticatedSession = URLSession(configuration: config, delegate: self, delegateQueue: nil)
     }
     
@@ -64,7 +64,7 @@ class APIManager : NSObject, URLSessionDataDelegate {
                     if (200...299 ~= httpURLResponse.statusCode) {
                         do {
                             if let data = data {
-                                if var jsonPString = String(data: data, encoding: .ascii) {
+                                if var jsonPString = String(data: data, encoding: .utf8) {
                                     jsonPString.characters.removeFirst()
                                     jsonPString.characters.removeLast()
                                     

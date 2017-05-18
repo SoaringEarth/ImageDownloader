@@ -19,7 +19,9 @@ Optional Requirements
 •  Search for images by tag                                                                     [o]
      // Note - Added tags, but not search functionality
 •  Image caching                                                                                [x]
-•  Order by date taken or date published                                                        [x]
+•  Order by date taken or date published                                                        [o]
+    // Note - Can order by title, but dates arent working
+        wondering if its due to some of the dates being nil?
 •  Save image to the System Gallery                                                             [x]
 •  Open image in system browser                                                                 [x]
 •  Share picture by email                                                                       [x]

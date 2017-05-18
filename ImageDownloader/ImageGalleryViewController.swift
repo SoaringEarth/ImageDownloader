@@ -22,9 +22,10 @@ class ImageGalleryViewController: UIViewController {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.setNeedsLayout()
+        view.setNeedsDisplay()
         fetchFlickrData()
     }
     
@@ -34,7 +35,7 @@ class ImageGalleryViewController: UIViewController {
             self.loadingView.isHidden = true
         }, andFailure: {
             print("Failed to get images")
-            
+            self.loadingView.isHidden = false
             self.loadingViewLabel.text = "Failed To Get Images Please Try Again Later"
         })
     }

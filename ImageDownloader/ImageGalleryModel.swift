@@ -20,6 +20,7 @@ class ImageGalleryModel: NSObject {
     func fetchImageGalleryData(withCompletion completionHandler: @escaping ()->(), andFailure failureHandler: @escaping ()->()) {
         
         if !coreDataObjectsExist() {
+            print("Core Data Not Found:")
             WebServicesManager.sharedInstance.getImageDataWithCompletionBlock(completedWithSuccess: { (success, json) in
                 if success {
                     for item in json["items"] {
@@ -44,7 +45,7 @@ class ImageGalleryModel: NSObject {
     }
     
     private func coreDataObjectsExist() -> Bool {
-        images = []
+        images = [ImageGalleryObject]()
         let entity = "ImageGalleryObject"
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         do {
@@ -58,11 +59,14 @@ class ImageGalleryModel: NSObject {
             return false
         }
         
-        return true
+        if images.count > 0 {
+            return true
+        } else {
+            return false
+        }
     }
     
     private func coreDataObjectExists(withTitle title : String) -> Bool {
-        
         let entity = "ImageGalleryObject"
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         do {
