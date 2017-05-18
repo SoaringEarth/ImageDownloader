@@ -33,8 +33,8 @@ class ImageGalleryModel: NSObject {
                     
                     completionHandler()
                 } else {
-                    print("Failed to get Data")
-                    failureHandler()
+                    print("Failed to get Data - trying again")
+                    self.fetchImageGalleryData(withCompletion: completionHandler, andFailure: failureHandler)
                 }
             })
         } else {

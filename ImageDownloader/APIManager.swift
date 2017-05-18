@@ -69,13 +69,13 @@ class APIManager : NSObject, URLSessionDataDelegate {
                                     jsonPString.characters.removeLast()
                                     
                                     let json = try JSON(data: (jsonPString.data(using: .utf8))!, options: [.allowFragments, .mutableContainers])
-                                    print(json)
                                     completion!(true, json)
                                 }
                             }
                         } catch {
                             ///alert
                             print(error)
+                            failure?(data! as NSData?, error as NSError)
                         }
                         
                     } else {

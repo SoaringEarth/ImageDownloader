@@ -24,7 +24,7 @@ extension WebServicesManager {
                 return completedWithSuccess(true, nonNilJSON)
             }
         }, failure: { (data, error) in
-            print(error)
+            print("getImageDataWithCompletionBlock: \(error)")
             return completedWithSuccess(false, JSON.null)
         })
     }
